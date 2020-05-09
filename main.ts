@@ -62,7 +62,7 @@ function No_Star () {
     led.plotBrightness(2, 0, 0)
 }
 let Low = 0
-Low = 64
+Low = 32
 Draw_Tree_1()
 basic.forever(function () {
     for (let index = 0; index < 4; index++) {
