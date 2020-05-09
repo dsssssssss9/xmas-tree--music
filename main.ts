@@ -65,12 +65,22 @@ let Low = 0
 Low = 64
 Draw_Tree_1()
 basic.forever(function () {
-    Star()
-    basic.pause(200)
-    No_Star()
-    basic.pause(500)
-    Bauble_on()
-    basic.pause(500)
-    No_Bauble()
-    basic.pause(500)
+    for (let index = 0; index < 4; index++) {
+        Star()
+        basic.pause(200)
+        No_Star()
+        basic.pause(500)
+    }
+    for (let index = 0; index < 4; index++) {
+        Bauble_on()
+        basic.pause(200)
+        No_Bauble()
+        basic.pause(500)
+    }
+    for (let index = 0; index < 4; index++) {
+        All_On()
+        basic.pause(500)
+        All_Off()
+        basic.pause(1000)
+    }
 })
