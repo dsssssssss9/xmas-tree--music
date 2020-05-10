@@ -1,8 +1,74 @@
+function Play_Happy_Xmas () {
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    music.rest(music.beat(BeatFraction.Half))
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(440, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.rest(music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.playTone(440, music.beat(BeatFraction.Whole))
+    music.playTone(440, music.beat(BeatFraction.Whole))
+    music.playTone(466, music.beat(BeatFraction.Whole))
+    music.playTone(440, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.rest(music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.rest(music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    music.rest(music.beat(BeatFraction.Whole))
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.rest(music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(440, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+    music.playTone(523, music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.rest(music.beat(BeatFraction.Whole))
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    music.playTone(294, music.beat(BeatFraction.Whole))
+    music.playTone(392, music.beat(BeatFraction.Whole))
+    music.playTone(330, music.beat(BeatFraction.Whole))
+    music.playTone(349, music.beat(BeatFraction.Whole))
+}
 function No_Bauble () {
     led.plotBrightness(1, 2, Low)
     led.plotBrightness(3, 2, Low)
     led.plotBrightness(0, 3, Low)
     led.plotBrightness(4, 3, Low)
+}
+function All_Off () {
+    No_Bauble()
+    basic.pause(100)
+    No_Star()
 }
 function tree2 () {
     led.plotBrightness(2, 0, Low)
@@ -27,24 +93,9 @@ input.onButtonPressed(Button.A, function () {
 function Star () {
     led.plotBrightness(2, 0, 255)
 }
-function All_On () {
-    Star()
-    Bauble_on()
-}
-function All_Off () {
-    No_Bauble()
-    basic.pause(100)
-    No_Star()
-}
 input.onButtonPressed(Button.B, function () {
     All_Off()
 })
-function Bauble_on () {
-    led.plotBrightness(1, 2, 255)
-    led.plotBrightness(3, 2, 255)
-    led.plotBrightness(0, 3, 255)
-    led.plotBrightness(4, 3, 255)
-}
 function Draw_Tree_1 () {
     led.plotBrightness(2, 0, 0)
     led.plotBrightness(2, 1, Low)
@@ -58,13 +109,25 @@ function Draw_Tree_1 () {
     led.plotBrightness(4, 3, Low)
     led.plotBrightness(2, 4, Low)
 }
+function Bauble_on () {
+    led.plotBrightness(1, 2, 255)
+    led.plotBrightness(3, 2, 255)
+    led.plotBrightness(0, 3, 255)
+    led.plotBrightness(4, 3, 255)
+}
+function All_On () {
+    Star()
+    Bauble_on()
+}
 function No_Star () {
     led.plotBrightness(2, 0, 0)
 }
 let Low = 0
 Low = 32
 Draw_Tree_1()
+music.setTempo(260)
 basic.forever(function () {
+    All_Off()
     for (let index = 0; index < 4; index++) {
         Star()
         basic.pause(200)
@@ -83,4 +146,6 @@ basic.forever(function () {
         All_Off()
         basic.pause(1000)
     }
+    All_On()
+    Play_Happy_Xmas()
 })
